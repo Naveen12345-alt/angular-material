@@ -1,0 +1,35 @@
+<mat-toolbar color="warn" class="app-header">
+  <a href="https://www.positronx.io" target="_blank" class="positronx"
+    >Task Alert</a
+  >
+
+  <ng-template [ngIf]="!user">
+    <div>
+      <a mat-button routerLink="/login" routerLinkActive="active">Log in</a>
+      <a mat-button mat-raised-button routerLink="/register">Register</a>
+    </div>
+  </ng-template>
+  <ng-template [ngIf]="user">
+    <a
+      mat-button
+      mat-raised-button
+      routerLink="/view-task"
+      routerLinkActive="inactive"
+      >ViewTask</a
+    ><a
+      mat-button
+      mat-raised-button
+      routerLink="/notifications"
+      routerLinkActive="inactive"
+      >Notification</a
+    >
+    <a
+      mat-button
+      mat-raised-button
+      routerLink="/login"
+      routerLinkActive="active"
+      (click)="logout()"
+      >logOut</a
+    >
+  </ng-template>
+</mat-toolbar>
